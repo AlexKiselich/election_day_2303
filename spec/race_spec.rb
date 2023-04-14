@@ -21,12 +21,14 @@ describe '#register_candidate!' do
     race = Race.new("Texas Governor")
     candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
 
-    # expect(candidate1.class).to eq(Candidate)
-    # expect(candidate1.name).to eq("Diana D")
-    # expect(candidate1.party).to eq(:democrat)
+    expect(candidate1.class).to eq(Candidate)
+    expect(candidate1.name).to eq("Diana D")
+    expect(candidate1.party).to eq(:democrat)
 
     candidate2 = race.register_candidate!({name: "Roberto R", party: :republican})
 
-    expect(race.candidates).to eq([candidate1, candidate2])
+    expected_resutls = [Candidate.new({name: "Diana D", party: :democrat}), Candidate.new({name: "Roberto R", party: :republican})]
+
+    expect(race.candidates).to eq(expected_resutls)
   end
 end

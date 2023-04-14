@@ -5,10 +5,10 @@ class Race
     @candidates = []
   end
 
-  def register_candidate!(candidate)
-    list_of_candidates = []
-    new_candidate = Candidate.new(candidate)
-    @candidates << new_candidate[0]
+  def register_candidate!(info)
+    new_candidate = Candidate.new(info)
+    @candidates << new_candidate
+   
   end
 
 
